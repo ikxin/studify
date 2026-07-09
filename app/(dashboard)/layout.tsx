@@ -5,47 +5,26 @@ import { usePathname, useRouter } from "next/navigation";
 import { Avatar, Button, Dropdown, Layout, Nav } from "@douyinfe/semi-ui";
 import {
 	IconBell,
-	IconGridView,
 	IconHelpCircle,
 	IconHome,
-	IconImage,
-	IconList,
 	IconMenu,
 	IconMoon,
 	IconSemiLogo,
 	IconSun,
-	IconTickCircle,
 	IconUser,
+	IconUserGroup,
 } from "@douyinfe/semi-icons";
 
 const { Header, Sider, Content, Footer } = Layout;
 
 const sideMenuItems = [
 	{ itemKey: "dashboard", text: "仪表盘", icon: <IconHome size="large" /> },
-	{
-		itemKey: "products",
-		text: "产品管理",
-		icon: <IconGridView size="large" />,
-		items: ["产品列表", "产品分类"],
-	},
-	{
-		itemKey: "catalog",
-		text: "目录管理",
-		icon: <IconList size="large" />,
-		items: ["目录列表", "目录配置"],
-	},
-	{ itemKey: "media", text: "媒体中心", icon: <IconImage size="large" /> },
-	{ itemKey: "approval", text: "审批中心", icon: <IconTickCircle size="large" /> },
-	{ itemKey: "users", text: "用户管理", icon: <IconUser size="large" /> },
+	{ itemKey: "manager", text: "学生管理", icon: <IconUserGroup size="large" /> },
 ];
 
 const routeMap: Record<string, string> = {
 	dashboard: "/",
-	products: "/",
-	catalog: "/",
-	media: "/",
-	approval: "/",
-	users: "/",
+	manager: "/manager",
 };
 
 export default function DashboardLayout({

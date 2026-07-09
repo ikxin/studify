@@ -13,26 +13,26 @@
 		"upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload"
 	},
 	"dependencies": {
-		"@douyinfe/semi-icons": "^2.97.0",
-		"@douyinfe/semi-illustrations": "^2.97.0",
-		"@douyinfe/semi-ui": "^2.97.0",
-		"@opennextjs/cloudflare": "^1.19.9",
+		"@douyinfe/semi-icons": "^2.98.0",
+		"@douyinfe/semi-illustrations": "^2.98.0",
+		"@douyinfe/semi-ui": "^2.98.0",
+		"@opennextjs/cloudflare": "^1.19.11",
 		"drizzle-orm": "^0.45.2",
 		"next": "16.2.6",
-		"react": "^19.1.7",
-		"react-dom": "^19.1.7"
+		"react": "^19.2.6",
+		"react-dom": "^19.2.6"
 	},
 	"devDependencies": {
-		"@eslint/eslintrc": "^3",
-		"@tailwindcss/postcss": "^4",
-		"@types/node": "^20",
-		"@types/react": "^19.1.7",
-		"@types/react-dom": "^19.1.7",
+		"@eslint/eslintrc": "^3.3.5",
+		"@tailwindcss/postcss": "^4.3.0",
+		"@types/node": "^20.19.41",
+		"@types/react": "^19.2.15",
+		"@types/react-dom": "^19.2.3",
 		"drizzle-kit": "^0.31.10",
-		"eslint": "^9",
+		"eslint": "^9.39.4",
 		"eslint-config-next": "16.2.6",
-		"tailwindcss": "^4",
-		"typescript": "^5.7.4",
-		"wrangler": "^4.92.0"
+		"tailwindcss": "^4.3.0",
+		"typescript": "^5.9.3",
+		"wrangler": "^4.93.0"
 	}
 }
