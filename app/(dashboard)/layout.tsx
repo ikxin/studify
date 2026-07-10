@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { Avatar, Button, Dropdown, Layout, Nav } from "@douyinfe/semi-ui";
+import { useRouter } from "next/navigation";
+import { Avatar, Button, Dropdown, Layout, Nav, Toast } from "@douyinfe/semi-ui";
 import {
 	IconBell,
 	IconHelpCircle,
@@ -12,20 +12,14 @@ import {
 	IconSemiLogo,
 	IconSun,
 	IconUser,
-	IconUserGroup,
 } from "@douyinfe/semi-icons";
+import { authClient } from "@/lib/auth-client";
 
 const { Header, Sider, Content, Footer } = Layout;
 
 const sideMenuItems = [
 	{ itemKey: "dashboard", text: "仪表盘", icon: <IconHome size="large" /> },
-	{ itemKey: "manager", text: "学生管理", icon: <IconUserGroup size="large" /> },
 ];
-
-const routeMap: Record<string, string> = {
-	dashboard: "/",
-	manager: "/manager",
-};
 
 export default function DashboardLayout({
 	children,
@@ -33,13 +27,10 @@ export default function DashboardLayout({
 	children: React.ReactNode;
 }>) {
 	const router = useRouter();
-	const pathname = usePathname();
 	const [siderVisible, setSiderVisible] = useState(false);
 	const [theme, setTheme] = useState<"light" | "dark">(() =>
 		typeof document !== "undefined" && document.body.getAttribute("theme-mode") === "dark" ? "dark" : "light",
 	);
-
-	const currentKey = Object.entries(routeMap).find(([, path]) => pathname === path)?.[0] ?? "dashboard";
 
 	const toggleTheme = () => {
 		const nextTheme = theme === "dark" ? "light" : "dark";
@@ -52,14 +43,20 @@ export default function DashboardLayout({
 		}
 	};
 
-	const handleNavSelect = (data: { itemKey: string | number }) => {
-		const path = routeMap[String(data.itemKey)];
+	const handleSignOut = async () => {
+		try {
+			const { error } = await authClient.signOut();
 
-		if (path && path !== pathname) {
-			router.push(path);
+			if (error) {
+				Toast.error(error.message ?? "退出登录失败，请稍后重试。");
+				return;
+			}
+
+			router.replace("/login");
+			router.refresh();
+		} catch {
+			Toast.error("退出登录失败，请稍后重试。");
 		}
-
-		setSiderVisible(false);
 	};
 
 	return (
@@ -105,7 +102,7 @@ export default function DashboardLayout({
 							render={
 								<Dropdown.Menu>
 									<Dropdown.Item icon={<IconUser />}>个人信息</Dropdown.Item>
-									<Dropdown.Item onClick={() => window.location.assign("/api/auth/logout")}>退出登录</Dropdown.Item>
+									<Dropdown.Item onClick={() => void handleSignOut()}>退出登录</Dropdown.Item>
 								</Dropdown.Menu>
 							}
 						>
@@ -123,9 +120,8 @@ export default function DashboardLayout({
 				<Sider className="hidden! shrink-0 bg-(--semi-color-bg-1) md:block!">
 					<Nav
 						style={{ maxWidth: 220, height: "100%" }}
-						selectedKeys={[currentKey]}
+						selectedKeys={["dashboard"]}
 						items={sideMenuItems}
-						onSelect={handleNavSelect}
 						footer={{
 							collapseButton: true,
 							collapseText: (collapsed) => (collapsed ? "展开侧边栏" : "收起侧边栏"),
@@ -159,9 +155,8 @@ export default function DashboardLayout({
 			>
 				<Nav
 					style={{ maxWidth: 220, height: "100%" }}
-					selectedKeys={[currentKey]}
+					selectedKeys={["dashboard"]}
 					items={sideMenuItems}
-					onSelect={handleNavSelect}
 				/>
 			</div>
 		</Layout>

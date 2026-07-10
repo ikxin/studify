@@ -4,6 +4,21 @@ import { defineConfig } from "vite";
 import vinext from "vinext";
 
 export default defineConfig({
+	build: {
+		rolldownOptions: {
+			onLog(level, log, defaultHandler) {
+				if (
+					level === "warn" &&
+					log.code === "EVAL" &&
+					/(?:^|[\\/])lottie-web(?:[\\/]|$)/.test(log.id ?? "")
+				) {
+					return;
+				}
+
+				defaultHandler(level, log);
+			},
+		},
+	},
 	plugins: [
 		vinext({ rsc: false }),
 		rsc({

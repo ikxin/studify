@@ -2,11 +2,12 @@ import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({
 	schema: "./lib/schema.ts",
+	out: "./drizzle",
 	dialect: "sqlite",
 	driver: "d1-http",
 	dbCredentials: {
 		accountId: "47f01f8326b145d7b59da93a0e00f46e",
-		databaseId: "6a349e7c-5cc9-4497-9da3-58831ddb8bd9",
+		databaseId: "112a09fe-c10d-4138-89dc-252489406dcc",
 		token: process.env.CLOUDFLARE_D1_TOKEN!,
 	},
 });

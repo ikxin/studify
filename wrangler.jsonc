@@ -25,8 +25,8 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "entrant",
-			"database_id": "6a349e7c-5cc9-4497-9da3-58831ddb8bd9",
+			"database_name": "studify",
+			"database_id": "112a09fe-c10d-4138-89dc-252489406dcc",
 			"remote": true
 		}
 	]
