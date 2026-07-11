@@ -1,0 +1,33 @@
+diff --git a/package.json b/package.json
+index 44fb81cd96e4e8b8640cef5e6dfe42d99ad364b8..6eec16870235a8262a4dc42e6d740db70bdaa8cf 100644
+--- a/package.json
++++ b/package.json
+@@ -16,6 +16,28 @@
+   "typings": "./typings.d.ts",
+   "main": "index.js",
+   "module": "esm/index.js",
++  "exports": {
++    ".": {
++      "types": "./typings.d.ts",
++      "import": "./esm/index.js",
++      "require": "./index.js",
++      "default": "./index.js"
++    },
++    "./package.json": "./package.json",
++    "./esm/*": "./esm/*",
++    "./*/index.js": {
++      "types": "./typings.d.ts",
++      "import": "./esm/*/index.js",
++      "require": "./*/index.js",
++      "default": "./*/index.js"
++    },
++    "./*": {
++      "types": "./typings.d.ts",
++      "import": "./esm/*/index.js",
++      "require": "./*/index.js",
++      "default": "./*/index.js"
++    }
++  },
+   "scripts": {
+     "test": "karma start config/karma.js",
+     "lint": "eslint .",

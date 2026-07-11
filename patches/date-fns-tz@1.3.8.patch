@@ -1,0 +1,97 @@
+diff --git a/package.json b/package.json
+index a6d70691c8f10c0a73d53c4e07d7140f4a65fd1f..65130de78f95d08a2c0638fc1ad89902ad31b0f7 100644
+--- a/package.json
++++ b/package.json
+@@ -24,21 +24,78 @@
+   "module": "esm/index.js",
+   "types": "typings.d.ts",
+   "exports": {
+-    ".": "./index.js",
++    ".": {
++      "types": "./typings.d.ts",
++      "import": "./esm/index.js",
++      "require": "./index.js",
++      "default": "./index.js"
++    },
+     "./package.json": "./package.json",
+-    "./format": "./format/index.js",
+-    "./formatInTimeZone": "./formatInTimeZone/index.js",
+-    "./getTimezoneOffset": "./getTimezoneOffset/index.js",
+-    "./toDate": "./toDate/index.js",
+-    "./utcToZonedTime": "./utcToZonedTime/index.js",
+-    "./zonedTimeToUtc": "./zonedTimeToUtc/index.js",
+-    "./fp": "./fp/index.js",
+-    "./fp/format": "./fp/format/index.js",
+-    "./fp/formatInTimeZone": "./fp/formatInTimeZone/index.js",
+-    "./fp/getTimezoneOffset": "./fp/getTimezoneOffset/index.js",
+-    "./fp/toDate": "./fp/toDate/index.js",
+-    "./fp/utcToZonedTime": "./fp/utcToZonedTime/index.js",
+-    "./fp/zonedTimeToUtc": "./fp/zonedTimeToUtc/index.js",
++    "./format": {
++      "import": "./esm/format/index.js",
++      "require": "./format/index.js",
++      "default": "./format/index.js"
++    },
++    "./formatInTimeZone": {
++      "import": "./esm/formatInTimeZone/index.js",
++      "require": "./formatInTimeZone/index.js",
++      "default": "./formatInTimeZone/index.js"
++    },
++    "./getTimezoneOffset": {
++      "import": "./esm/getTimezoneOffset/index.js",
++      "require": "./getTimezoneOffset/index.js",
++      "default": "./getTimezoneOffset/index.js"
++    },
++    "./toDate": {
++      "import": "./esm/toDate/index.js",
++      "require": "./toDate/index.js",
++      "default": "./toDate/index.js"
++    },
++    "./utcToZonedTime": {
++      "import": "./esm/utcToZonedTime/index.js",
++      "require": "./utcToZonedTime/index.js",
++      "default": "./utcToZonedTime/index.js"
++    },
++    "./zonedTimeToUtc": {
++      "import": "./esm/zonedTimeToUtc/index.js",
++      "require": "./zonedTimeToUtc/index.js",
++      "default": "./zonedTimeToUtc/index.js"
++    },
++    "./fp": {
++      "import": "./esm/fp/index.js",
++      "require": "./fp/index.js",
++      "default": "./fp/index.js"
++    },
++    "./fp/format": {
++      "import": "./esm/fp/format/index.js",
++      "require": "./fp/format/index.js",
++      "default": "./fp/format/index.js"
++    },
++    "./fp/formatInTimeZone": {
++      "import": "./esm/fp/formatInTimeZone/index.js",
++      "require": "./fp/formatInTimeZone/index.js",
++      "default": "./fp/formatInTimeZone/index.js"
++    },
++    "./fp/getTimezoneOffset": {
++      "import": "./esm/fp/getTimezoneOffset/index.js",
++      "require": "./fp/getTimezoneOffset/index.js",
++      "default": "./fp/getTimezoneOffset/index.js"
++    },
++    "./fp/toDate": {
++      "import": "./esm/fp/toDate/index.js",
++      "require": "./fp/toDate/index.js",
++      "default": "./fp/toDate/index.js"
++    },
++    "./fp/utcToZonedTime": {
++      "import": "./esm/fp/utcToZonedTime/index.js",
++      "require": "./fp/utcToZonedTime/index.js",
++      "default": "./fp/utcToZonedTime/index.js"
++    },
++    "./fp/zonedTimeToUtc": {
++      "import": "./esm/fp/zonedTimeToUtc/index.js",
++      "require": "./fp/zonedTimeToUtc/index.js",
++      "default": "./fp/zonedTimeToUtc/index.js"
++    },
+     "./esm": "./esm/index.js",
+     "./esm/format": "./esm/format/index.js",
+     "./esm/formatInTimeZone": "./esm/formatInTimeZone/index.js",
